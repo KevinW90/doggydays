@@ -15,12 +15,19 @@
     <div class="right"/>
   {:else}
     <div class="left">
-      <Logo />
-      <Menu />
     </div>
-    <Button role="primary">
-      Get Started
-    </Button>
+    <div class="center">
+      <div>
+        <Logo />
+        <Menu />
+      </div>
+
+      <Button role="primary">
+        Get Started
+      </Button>
+    </div>
+    <div class="right">
+    </div>
   {/if}
 </header>
 
@@ -42,5 +49,31 @@
   /* used to center the logo */
   .right {
     width: 1.5rem;
+  }
+
+  @media (min-width: 867px) {
+    header {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      grid-column: 2 / -2;
+    }
+
+    .center div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .right {
+      width: auto;
+    }
   }
 </style>

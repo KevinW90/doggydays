@@ -13,6 +13,8 @@
     border: none;
     border-radius: .5rem;
     font-family: "Fredoka One";
+    white-space: nowrap;
+
   }
 
   .btn.fit {

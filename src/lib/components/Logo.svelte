@@ -9,7 +9,8 @@
 
 <style>
   picture {
-    display: inline-block;
+    display: flex;
+    align-items: center;
   }
 
   img {
