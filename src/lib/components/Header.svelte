@@ -49,6 +49,7 @@
   /* used to center the logo */
   .right {
     width: 1.5rem;
+    height: 1.5rem;
   }
 
   @media (min-width: 867px) {
