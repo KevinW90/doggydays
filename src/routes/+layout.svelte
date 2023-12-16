@@ -10,7 +10,7 @@
 // resize event listener
 const handleResize = () => {
 	// change value of isMobile if window width is greater than 768px
-	_isMobile = window.innerWidth <= 867;
+	_isMobile = window.innerWidth < 867;
 }
 
 $: isMobile.set(_isMobile);

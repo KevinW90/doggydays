@@ -4,27 +4,31 @@ import Icon from '@iconify/svelte';
 
   const menuItems = [
     {
+      role: 'link',
       name: 'home',
       link: '/'
     },
     {
+      role: 'link',
       name: 'how it works',
-      link: '/about'
+      link: '#about'
     },
     {
+      role: 'link',
       name: 'pricing',
-      link: '/contact'
+      link: '#contact'
     },
     {
+      role: 'dropdown',
       name: 'partners',
     },
     {
+      role: 'link',
       name: 'contact',
-      link: '/contact'
+      link: '#contact'
     },
   ];
 
-  $: console.log(!isMobile)
 </script>
 
 <div class="menu">
@@ -34,6 +38,9 @@ import Icon from '@iconify/svelte';
     {#each menuItems as item}
       <div class="menu-item">
         {item.name}
+        {#if item.role === 'dropdown'}
+          <Icon icon="iconamoon:arrow-down-2-fill" />
+        {/if}
       </div>
     {/each}
   {/if}
@@ -54,5 +61,9 @@ import Icon from '@iconify/svelte';
     text-transform: capitalize;
     font-family: "Fredoka One";
     white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+
   }
 </style>
