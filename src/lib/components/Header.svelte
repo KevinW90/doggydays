@@ -11,7 +11,7 @@
   {#if $isMobile}
     <Menu />
     <Logo />
-    <div />
+    <div class="right"/>
   {:else}
     <div class="left">
       <Logo />
@@ -28,11 +28,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 1rem;
   }
 
   .left {
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  /* used to center the logo */
+  .right {
+    width: 1.5rem;
   }
 </style>

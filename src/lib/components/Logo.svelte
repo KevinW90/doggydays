@@ -4,7 +4,7 @@
 
 <picture>
     <source srcset={imgLogo} type="image/png" />
-    <img src={imgLogo} alt="icon-speech-bubbles" />
+    <img src={imgLogo} alt="doggydays logo" />
   </picture>
 
 <style>
@@ -13,6 +13,12 @@
   }
 
   img {
-    width: 150px;
+    width: 125px;
+  }
+
+  @media (min-width: 601px) {
+    img {
+      width: 150px;
+    }
   }
 </style>
