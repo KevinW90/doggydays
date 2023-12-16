@@ -1,4 +1,7 @@
 <script>
+	import '../app.css';
+	import '@fontsource/fredoka-one';
+
 	import Header from "$lib/components/Header.svelte";
 	import { isMobile } from "$lib/stores";
 	import { onMount } from "svelte";

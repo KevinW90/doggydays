@@ -1,6 +1,7 @@
 <script lang="ts">
   import logoDoubleDText from '$lib/images/logo-doubleD-text.png'
 	import { isMobile } from '$lib/stores';
+	import Button from './Button.svelte';
 	import Logo from './Logo.svelte';
 	import Menu from './Menu.svelte';
 
@@ -17,9 +18,9 @@
       <Logo />
       <Menu />
     </div>
-    <div>
-      get started
-    </div>
+    <Button role="primary">
+      Get Started
+    </Button>
   {/if}
 </header>
 
