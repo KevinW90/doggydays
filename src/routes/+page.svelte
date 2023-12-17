@@ -2,6 +2,7 @@
 	// import some images to test
 
 	import Hero from "$lib/components/Hero.svelte";
+	import HowItWorks from "$lib/components/HowItWorks.svelte";
 
 	
 </script>
@@ -13,7 +14,7 @@
 
 <section>
 	<Hero />
-
+	<HowItWorks />
 </section>
 
 <style>
