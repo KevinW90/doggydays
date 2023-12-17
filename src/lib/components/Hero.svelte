@@ -46,7 +46,7 @@
   }
 
   p {
-    font-family: "Truculenta Variable", sans-serif;
+    font-family: "Truculenta", sans-serif;
     margin: 0;
   }
 

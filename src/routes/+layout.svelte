@@ -32,16 +32,3 @@ onMount(() => {
 		<slot />
 	</main>
 </div>
-
-<style>
-	:global(*) {
-		box-sizing: border-box;
-	}
-	:global(html, body) {
-		margin: 0;
-		padding: 0;
-	}
-	:global(.iconify) {
-		font-size: 1.5rem;
-	}
-</style>
