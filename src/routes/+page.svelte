@@ -1,5 +1,8 @@
 <script>
 	// import some images to test
+
+	import Hero from "$lib/components/Hero.svelte";
+
 	
 </script>
 
@@ -9,7 +12,7 @@
 </svelte:head>
 
 <section>
-	
+	<Hero />
 
 </section>
 

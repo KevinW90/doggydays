@@ -77,4 +77,10 @@
       width: auto;
     }
   }
+
+  @media (min-width: 1750px) {
+    .center {
+      grid-column: 3 / -3;
+    }
+  }
 </style>

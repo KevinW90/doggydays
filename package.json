@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/truculenta": "^5.0.18",
 		"@fontsource/fredoka-one": "^5.0.5"
 	}
 }
