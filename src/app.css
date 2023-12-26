@@ -4,6 +4,9 @@
 	--color-white: #ffffff;
 	--color-primary: #17a398;
 	--color-primary-dark: #178980;
+	--color-grey: #d1d1d1;
+	--color-grey-lite: #f1f1f1;
+	--color-grey-dark: #666666;
 }
 
 * {
