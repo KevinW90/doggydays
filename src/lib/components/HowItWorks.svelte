@@ -70,7 +70,7 @@
 		gap: 2rem;
 
 		padding-top: 4rem;
-		overflow: hidden;
+		/* overflow: hidden; */
 	}
 
 	.shadow-text {
