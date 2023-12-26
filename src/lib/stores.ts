@@ -1,3 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
 
 export const isMobile = writable(true);
+export const hero: Writable<HTMLElement | null> = writable(null);

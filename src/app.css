@@ -16,6 +16,11 @@ body {
 	padding: 0;
 }
 
+body,
+.app {
+	overflow-x: hidden;
+}
+
 .iconify {
 	font-size: 1.5rem;
 }
