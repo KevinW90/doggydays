@@ -78,6 +78,7 @@
 		position: absolute;
 		top: 0;
 		right: -1.7ch;
+		z-index: -1;
 
 		font-family: 'Fredoka One';
 		font-size: 4rem;

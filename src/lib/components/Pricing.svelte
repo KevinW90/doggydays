@@ -74,7 +74,8 @@
 		height: fit-content;
 		position: absolute;
 		top: 0;
-		right: -1.7ch;
+		left: -1.7ch;
+		z-index: -1;
 
 		font-family: 'Fredoka One';
 		font-size: 4rem;
@@ -100,6 +101,7 @@
 		grid-auto-flow: column;
 		grid-auto-columns: calc(75% - 16px * 2);
 		grid-template-rows: auto;
+		padding: 1rem 0;
 
 		overflow-x: scroll;
 		scroll-snap-type: x mandatory;
@@ -126,6 +128,8 @@
 		border-radius: 0.5rem;
 		padding: 1rem;
 
+		background-color: white;
+
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
@@ -137,6 +141,7 @@
 		background-color: var(--color-primary);
 		border-color: var(--color-primary);
 		color: var(--color-white);
+		box-shadow: 0 0 10px 5px rgba(23, 163, 152, 0.25);
 	}
 
 	.card.Premium .title {
@@ -184,7 +189,27 @@
 		gap: 0.5rem;
 	}
 
-	@media (min-width: 650px) {
+	@media (min-width: 600px) {
+		.pricing {
+			padding-top: 5rem;
+			padding-bottom: 12rem;
+		}
+
+		.section-title {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.section-title h2 {
+			grid-column: 2 / span 10;
+			text-align: left;
+			font-family: 'Fredoka One';
+		}
+
 		.cards-container {
 			width: 100%;
 			display: flex;
@@ -200,6 +225,45 @@
 		.card {
 			flex: 1;
 			max-width: 275px;
+		}
+
+		.card.Premium {
+			box-shadow: none;
+		}
+	}
+
+	@media (min-width: 867px) {
+		.section-title {
+			right: 4rem;
+		}
+	}
+
+	@media (min-width: 1000px) {
+		.shadow-text {
+			top: unset;
+			bottom: 7rem;
+
+			font-size: 10rem;
+		}
+	}
+
+	@media (min-width: 1300px) {
+		.shadow-text {
+			top: unset;
+			font-size: 12rem;
+		}
+	}
+
+	@media (min-width: 1750px) {
+		.section-title h2 {
+			grid-column: 2 / span 9;
+			font-family: 'Fredoka One';
+		}
+
+		.shadow-text {
+			top: unset;
+			bottom: 2rem;
+			font-size: 17rem;
 		}
 	}
 </style>
