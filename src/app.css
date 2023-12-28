@@ -4,6 +4,7 @@
 	--color-white: #ffffff;
 	--color-primary: #17a398;
 	--color-primary-dark: #178980;
+	--color-primary-lite: #c2f5f1;
 	--color-grey: #d1d1d1;
 	--color-grey-lite: #f1f1f1;
 	--color-grey-dark: #666666;
@@ -26,4 +27,5 @@ body,
 
 .iconify {
 	font-size: 1.5rem;
+	width: 1.5rem;
 }

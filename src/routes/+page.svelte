@@ -2,6 +2,7 @@
 	// import some images to test
 
 	import Circle from '$lib/components/Circle.svelte';
+	import Contact from '$lib/components/Contact.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import HowItWorks from '$lib/components/HowItWorks.svelte';
 	import Pricing from '$lib/components/Pricing.svelte';
@@ -16,6 +17,7 @@
 	<Hero />
 	<HowItWorks />
 	<Pricing />
+	<Contact />
 </section>
 
 <style>
