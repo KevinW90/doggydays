@@ -2,25 +2,69 @@
 	import Icon from '@iconify/svelte';
 	import Button from './Button.svelte';
 
+	let name = '';
+	let number = '';
 	let services: string[] = [];
 
 	let serviceOptions = ['walking', 'training', 'grooming'];
+
+	function validate() {
+		if (!name.trim()) {
+			alert('Please enter a valid name');
+			return false;
+		}
+
+		if (!number.trim() || isNaN(Number(number))) {
+			alert('Please enter a valid number');
+			return false;
+		}
+
+		if (!services.length) {
+			alert('Please select at least one service');
+			return false;
+		}
+
+		return true;
+	}
+
+	async function submit() {
+		if (validate()) {
+			try {
+				const response = await fetch('./', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ name, number, services })
+				});
+
+				if (response.ok) {
+					alert('Data submitted successfully!');
+				} else {
+					alert('Error submitting data');
+				}
+			} catch (error) {
+				console.error('Error submitting data:', error);
+				alert('Error submitting data');
+			}
+		}
+	}
 </script>
 
 <div class="contact">
 	<div class="get-in-touch">
 		<span class="section-title">Get In Touch</span>
-		<form>
+		<form method="POST">
 			<div class="form-section">
 				<Icon icon="ic:round-person" />
 				<label>
-					<input type="text" placeholder="Name" />
+					<input type="text" name="name" bind:value={name} placeholder="Name" />
 				</label>
 			</div>
 			<div class="form-section">
 				<Icon icon="bi:phone-fill" />
 				<label>
-					<input type="text" placeholder="Phone Number" />
+					<input type="text" name="phone" bind:value={number} placeholder="Phone Number" />
 				</label>
 			</div>
 			<div class="form-section borderless">
@@ -29,7 +73,7 @@
 			<div class="checkbox-group">
 				{#each serviceOptions as service}
 					<label class="form-section">
-						<input type="checkbox" bind:group={services} value={service} />
+						<input type="checkbox" name="services" bind:group={services} value={service} />
 						{service}
 					</label>
 				{/each}
@@ -103,6 +147,7 @@
 		display: flex;
 		justify-content: center;
 		text-transform: capitalize;
+		cursor: pointer;
 	}
 
 	[type='checkbox'] {
@@ -119,6 +164,23 @@
 		font-family: 'Fredoka One';
 		border: none;
 		outline: none;
+	}
+
+	@media (min-width: 450px) {
+		.checkbox-group {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+	@media (min-width: 867px) {
+		.contact {
+			display: flex;
+			justify-content: center;
+		}
+
+		.get-in-touch {
+			width: fit-content;
+		}
 	}
 
 	/* .contact {
