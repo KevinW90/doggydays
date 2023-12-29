@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import Button from './Button.svelte';
+	import { page } from '$app/stores';
+	import { applyAction, enhance } from '$app/forms';
 
 	let name = '';
 	let number = '';
@@ -8,60 +10,44 @@
 
 	let serviceOptions = ['walking', 'training', 'grooming'];
 
-	function validate() {
-		if (!name.trim()) {
-			alert('Please enter a valid name');
-			return false;
-		}
+	let errors: any = [];
 
-		if (!number.trim() || isNaN(Number(number))) {
-			alert('Please enter a valid number');
-			return false;
-		}
-
-		if (!services.length) {
-			alert('Please select at least one service');
-			return false;
-		}
-
-		return true;
-	}
-
-	async function submit() {
-		if (validate()) {
-			try {
-				const response = await fetch('./', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({ name, number, services })
-				});
-
-				if (response.ok) {
-					alert('Data submitted successfully!');
-				} else {
-					alert('Error submitting data');
-				}
-			} catch (error) {
-				console.error('Error submitting data:', error);
-				alert('Error submitting data');
-			}
-		}
-	}
+	$: console.log($page);
 </script>
 
 <div class="contact">
 	<div class="get-in-touch">
 		<span class="section-title">Get In Touch</span>
-		<form method="POST">
-			<div class="form-section">
+		<form
+			method="POST"
+			use:enhance={({ formElement, formData, action, cancel, submitter }) => {
+				// `formElement` is this `<form>` element
+				// `formData` is its `FormData` object that's about to be submitted
+				// `action` is the URL to which the form is posted
+				// calling `cancel()` will prevent the submission
+				// `submitter` is the `HTMLElement` that caused the form to be submitted
+
+				return async ({ result, update }) => {
+					// `result` is an `ActionResult` object
+					// `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
+					console.log(result);
+
+					if (result.type === 'failure') {
+						errors = result.data?.errors;
+					} else {
+						errors = [];
+						update();
+					}
+				};
+			}}
+		>
+			<div class="form-section" class:error={errors.includes('name')}>
 				<Icon icon="ic:round-person" />
 				<label>
 					<input type="text" name="name" bind:value={name} placeholder="Name" />
 				</label>
 			</div>
-			<div class="form-section">
+			<div class="form-section" class:error={errors.includes('phone')}>
 				<Icon icon="bi:phone-fill" />
 				<label>
 					<input type="text" name="phone" bind:value={number} placeholder="Phone Number" />
@@ -72,7 +58,7 @@
 			</div>
 			<div class="checkbox-group">
 				{#each serviceOptions as service}
-					<label class="form-section">
+					<label class="form-section" class:error={errors.includes('services')}>
 						<input type="checkbox" name="services" bind:group={services} value={service} />
 						{service}
 					</label>
@@ -84,6 +70,10 @@
 </div>
 
 <style>
+	.form-section.error {
+		border-color: red;
+	}
+
 	.contact {
 		background-color: var(--color-primary);
 		padding: 1rem;

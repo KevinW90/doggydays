@@ -1,7 +1,4 @@
-<script>
-	// import some images to test
-
-	import Circle from '$lib/components/Circle.svelte';
+<script lang="ts">
 	import Contact from '$lib/components/Contact.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import HowItWorks from '$lib/components/HowItWorks.svelte';
