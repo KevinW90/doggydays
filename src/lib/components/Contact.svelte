@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import Button from './Button.svelte';
-	import { page } from '$app/stores';
 	import { applyAction, enhance } from '$app/forms';
 
 	let name = '';
@@ -11,8 +10,6 @@
 	let serviceOptions = ['walking', 'training', 'grooming'];
 
 	let errors: any = [];
-
-	$: console.log($page);
 </script>
 
 <div class="contact">
@@ -27,6 +24,26 @@
 				// calling `cancel()` will prevent the submission
 				// `submitter` is the `HTMLElement` that caused the form to be submitted
 
+				// TODO: create external validat efunction to be used here and on server
+				// clear existing errors
+				errors = [];
+
+				// get form data
+				const name = formData.get('name');
+				const phone = formData.get('phone')?.toString();
+				const services = formData.getAll('services');
+
+				if (!name) errors = [...errors, 'name'];
+				if (phone?.length !== 10) errors = [...errors, 'phone'];
+				if (services.length <= 0) errors = [...errors, 'services'];
+
+				if (errors.length > 0) {
+					alert('errors on client');
+					alert(errors);
+					cancel();
+				}
+
+				console.table({ name, phone, services });
 				return async ({ result, update }) => {
 					// `result` is an `ActionResult` object
 					// `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
