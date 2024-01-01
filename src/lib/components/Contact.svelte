@@ -1,16 +1,17 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import Button from './Button.svelte';
-	import { applyAction, enhance } from '$app/forms';
+	import { enhance } from '$app/forms';
 	import { CONTACT_ERRORS } from '$lib/errors/contact';
+	import { validateContactForm } from '$lib/utils/validate';
 
-	let name = '';
-	let number = '';
+	let name: string = '';
+	let number: string = '';
 	let services: string[] = [];
 
-	let serviceOptions = ['walking', 'training', 'grooming'];
+	let serviceOptions: string[] = ['walking', 'training', 'grooming'];
 
-	let errors: any = [];
+	let errors: string[] = [];
 </script>
 
 <div class="contact">
@@ -25,30 +26,16 @@
 				// calling `cancel()` will prevent the submission
 				// `submitter` is the `HTMLElement` that caused the form to be submitted
 
-				// TODO: create external validat efunction to be used here and on server
-				// clear existing errors
-				errors = [];
+				// check for errors in contact form
+				errors = validateContactForm(formData);
+				if (errors.length > 0) cancel();
 
-				// get form data
-				const name = formData.get('name');
-				const phone = formData.get('phone')?.toString();
-				const services = formData.getAll('services');
-
-				if (!name) errors = [...errors, 'name'];
-				if (phone?.length !== 10) errors = [...errors, 'phone'];
-				if (services.length <= 0) errors = [...errors, 'services'];
-
-				if (errors.length > 0) {
-					cancel();
-				}
-
-				console.table({ name, phone, services });
 				return async ({ result, update }) => {
 					// `result` is an `ActionResult` object
 					// `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
 					console.log(result);
 
-					if (result.type === 'failure') {
+					if (result.type === 'failure' && Array.isArray(result.data?.errors)) {
 						errors = result.data?.errors;
 					} else {
 						errors = [];
@@ -57,10 +44,11 @@
 				};
 			}}
 		>
+			<!-- TODO: refactor so each section has the error message inside itself -->
 			{#if errors.includes('name')}
 				<div class="error-msg">{CONTACT_ERRORS.name.message}</div>
 			{/if}
-			<div class="form-section" class:error={errors.includes('name')}>
+			<div class="form-section {errors.includes('name') && 'error'}">
 				<Icon icon="ic:round-person" />
 				<label>
 					<input type="text" name="name" bind:value={name} placeholder="Name" />
@@ -70,7 +58,7 @@
 			{#if errors.includes('phone')}
 				<div class="error-msg">{CONTACT_ERRORS.phone.message}</div>
 			{/if}
-			<div class="form-section" class:error={errors.includes('phone')}>
+			<div class="form-section {errors.includes('phone') && 'error'}">
 				<Icon icon="bi:phone-fill" />
 				<label>
 					<input type="text" name="phone" bind:value={number} placeholder="Phone Number" />
@@ -80,12 +68,12 @@
 			<div class="form-section borderless">
 				<Icon icon="fa-solid:question" /> I'm interested in:
 			</div>
-			{#if errors.includes('services')}
+			{#if errors.includes('phone')}
 				<div class="error-msg">{CONTACT_ERRORS.services.message}</div>
 			{/if}
 			<div class="checkbox-group">
 				{#each serviceOptions as service}
-					<label class="form-section" class:error={errors.includes('services')}>
+					<label class="form-section {errors.includes('services') && 'error'}">
 						<input type="checkbox" name="services" bind:group={services} value={service} />
 						{service}
 					</label>
