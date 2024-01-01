@@ -8,11 +8,13 @@ export const actions = {
 
 		console.log(data);
 
-		const errors = validateContactForm(data);
+		const errors = validateContactForm(data, 'server');
 
 		if (errors.length > 0)
 			return fail(400, {
 				errors
 			});
+
+		// TODO: send an email with the data (sendgrid)
 	}
 } satisfies Actions;

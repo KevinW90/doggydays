@@ -33,14 +33,11 @@
 				return async ({ result, update }) => {
 					// `result` is an `ActionResult` object
 					// `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
-					console.log(result);
 
-					if (result.type === 'failure' && Array.isArray(result.data?.errors)) {
+					if (result.type === 'failure' && Array.isArray(result.data?.errors))
 						errors = result.data?.errors;
-					} else {
-						errors = [];
-						update();
-					}
+
+					update();
 				};
 			}}
 		>
