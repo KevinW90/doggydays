@@ -41,7 +41,6 @@
 				};
 			}}
 		>
-			<!-- TODO: refactor so each section has the error message inside itself -->
 			{#if errors.includes('name')}
 				<div class="error-msg">{CONTACT_ERRORS.name.message}</div>
 			{/if}
@@ -181,7 +180,7 @@
 		}
 	}
 
-	@media (min-width: 867px) {
+	@media (min-width: 550px) {
 		.contact {
 			display: flex;
 			justify-content: center;
@@ -191,68 +190,4 @@
 			width: fit-content;
 		}
 	}
-
-	/* .contact {
-		background-color: var(--color-primary);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 2rem 0;
-	}
-
-	.get-in-touch {
-		background-color: var(--color-white);
-		padding: 4rem;
-		border-radius: 1rem;
-		box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
-	}
-
-	form {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		font-family: 'Fredoka One';
-	}
-
-	.form-section {
-		border: 2px solid var(--color-grey);
-		border-radius: 0.5rem;
-
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
-		padding: 0.5rem;
-
-		flex: 1;
-	}
-
-	.form-section.borderless {
-		border-color: transparent;
-	}
-
-	.form-section label {
-		flex: 1;
-	}
-
-	.checkbox-group {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.checkbox-group .form-section {
-		justify-content: center;
-		text-transform: capitalize;
-	}
-
-	[type='checkbox'] {
-		display: none;
-	}
-
-	[type='text'] {
-		border: none;
-		font-family: 'Fredoka One';
-		margin: 0;
-		width: 100%;
-	} */
 </style>
