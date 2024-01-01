@@ -2,6 +2,7 @@
 	import Icon from '@iconify/svelte';
 	import Button from './Button.svelte';
 	import { applyAction, enhance } from '$app/forms';
+	import { CONTACT_ERRORS } from '$lib/errors/contact';
 
 	let name = '';
 	let number = '';
@@ -38,8 +39,6 @@
 				if (services.length <= 0) errors = [...errors, 'services'];
 
 				if (errors.length > 0) {
-					alert('errors on client');
-					alert(errors);
 					cancel();
 				}
 
@@ -58,21 +57,32 @@
 				};
 			}}
 		>
+			{#if errors.includes('name')}
+				<div class="error-msg">{CONTACT_ERRORS.name.message}</div>
+			{/if}
 			<div class="form-section" class:error={errors.includes('name')}>
 				<Icon icon="ic:round-person" />
 				<label>
 					<input type="text" name="name" bind:value={name} placeholder="Name" />
 				</label>
 			</div>
+
+			{#if errors.includes('phone')}
+				<div class="error-msg">{CONTACT_ERRORS.phone.message}</div>
+			{/if}
 			<div class="form-section" class:error={errors.includes('phone')}>
 				<Icon icon="bi:phone-fill" />
 				<label>
 					<input type="text" name="phone" bind:value={number} placeholder="Phone Number" />
 				</label>
 			</div>
+
 			<div class="form-section borderless">
 				<Icon icon="fa-solid:question" /> I'm interested in:
 			</div>
+			{#if errors.includes('services')}
+				<div class="error-msg">{CONTACT_ERRORS.services.message}</div>
+			{/if}
 			<div class="checkbox-group">
 				{#each serviceOptions as service}
 					<label class="form-section" class:error={errors.includes('services')}>
@@ -87,10 +97,6 @@
 </div>
 
 <style>
-	.form-section.error {
-		border-color: red;
-	}
-
 	.contact {
 		background-color: var(--color-primary);
 		padding: 1rem;
@@ -115,6 +121,11 @@
 		padding-top: 1rem;
 	}
 
+	.error-msg {
+		color: var(--color-danger);
+		font-family: 'Truculenta', sans-serif;
+	}
+
 	.form-section {
 		border: 2px solid var(--color-grey);
 		border-radius: 0.5rem;
@@ -126,8 +137,9 @@
 		padding: 0.5rem;
 	}
 
-	.borderless {
-		border-color: transparent;
+	.form-section.error {
+		border-color: var(--color-danger);
+		background-color: var(--color-danger-lite);
 	}
 
 	.form-section label {
@@ -142,6 +154,10 @@
 
 	.form-section:has([type='text']:focus) {
 		border-color: var(--color-primary);
+	}
+
+	.borderless {
+		border-color: transparent;
 	}
 
 	.checkbox-group {
@@ -171,6 +187,7 @@
 		font-family: 'Fredoka One';
 		border: none;
 		outline: none;
+		background-color: inherit;
 	}
 
 	@media (min-width: 450px) {
