@@ -6,11 +6,11 @@
 	import { hero } from '$lib/stores';
 
 	onMount(() => {
-		hero.set(document.querySelector('.hero')!);
+		hero.set(document.querySelector('#hero')!);
 	});
 </script>
 
-<div class="hero">
+<div id="hero">
 	<Circle id={1} size="md" color="purple" />
 	<Circle id={2} size="xs" color="green" />
 	<Circle id={3} size="sm" color="purple" />
@@ -37,7 +37,7 @@
 </div>
 
 <style>
-	.hero {
+	#hero {
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -49,7 +49,7 @@
 		padding: 1rem 0;
 	}
 
-	.hero div:not(.actions) {
+	#hero div:not(.actions) {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -83,7 +83,7 @@
 	}
 
 	@media (min-width: 867px) {
-		.hero {
+		#hero {
 			display: grid;
 			grid-template-columns: repeat(12, 1fr);
 			gap: 0;
@@ -91,7 +91,7 @@
 			text-align: left;
 		}
 
-		.hero div:not(.actions) {
+		#hero div:not(.actions) {
 			align-items: flex-start;
 		}
 

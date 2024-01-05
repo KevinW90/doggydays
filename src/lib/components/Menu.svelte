@@ -21,10 +21,10 @@
 			name: 'pricing',
 			link: '#pricing'
 		},
-		{
-			role: 'dropdown',
-			name: 'partners'
-		},
+		// {
+		// 	role: 'dropdown',
+		// 	name: 'partners'
+		// },
 		{
 			role: 'link',
 			name: 'contact',
@@ -72,6 +72,11 @@
 </nav>
 
 <style>
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
 	.menu.mobile-open {
 		position: absolute;
 		top: 0;

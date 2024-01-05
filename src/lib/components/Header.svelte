@@ -6,7 +6,7 @@
 	import Menu from './Menu.svelte';
 </script>
 
-<header>
+<header id="header">
 	{#if $isMobile}
 		<Menu />
 		<Logo />
