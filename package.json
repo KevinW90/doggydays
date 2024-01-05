@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@emailjs/browser": "^3.11.0",
 		"@fontsource/fredoka-one": "^5.0.5"
 	}
 }

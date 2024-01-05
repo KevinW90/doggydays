@@ -4,6 +4,7 @@
 	import { enhance } from '$app/forms';
 	import { CONTACT_ERRORS } from '$lib/errors/contact';
 	import { validateContactForm } from '$lib/utils/validate';
+	import emailjs from '@emailjs/browser';
 
 	let name: string = '';
 	let number: string = '';
@@ -12,12 +13,27 @@
 	let serviceOptions: string[] = ['walking', 'training', 'grooming'];
 
 	let errors: string[] = [];
+
+	// email service
+	function sendEmail() {
+		emailjs
+			.sendForm('service_y2e48ee', 'dd_service_request', '#contact-form', 'JfM1exPF86e0BTlV5')
+			.then(
+				function (response) {
+					console.log('SUCCESS!', response.status, response.text);
+				},
+				function (error) {
+					console.log('FAILED...', error);
+				}
+			);
+	}
 </script>
 
 <div class="contact">
 	<div class="get-in-touch">
 		<span class="section-title">Get In Touch</span>
 		<form
+			id="contact-form"
 			method="POST"
 			use:enhance={({ formElement, formData, action, cancel, submitter }) => {
 				// `formElement` is this `<form>` element
@@ -37,6 +53,7 @@
 					if (result.type === 'failure' && Array.isArray(result.data?.errors))
 						errors = result.data?.errors;
 
+					sendEmail();
 					update();
 				};
 			}}
@@ -64,7 +81,7 @@
 			<div class="form-section borderless">
 				<Icon icon="fa-solid:question" /> I'm interested in:
 			</div>
-			{#if errors.includes('phone')}
+			{#if errors.includes('services')}
 				<div class="error-msg">{CONTACT_ERRORS.services.message}</div>
 			{/if}
 			<div class="checkbox-group">

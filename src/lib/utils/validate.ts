@@ -4,6 +4,8 @@ export function validateContactForm(formData: FormData, from: string = 'client')
 	const phone = formData.get('phone')?.toString();
 	const services = formData.getAll('services');
 
+	console.log(name, phone, services);
+
 	let errors: string[] = [];
 	// TEST: name not equal to `dev`
 	// if (from === 'server') if (name !== 'dev') errors = [...errors, 'name'];

@@ -8,6 +8,10 @@
 <svelte:head>
 	<title>DoggyDays</title>
 	<meta name="description" content="DoggyDays landing page" />
+	<script
+		type="text/javascript"
+		src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+	></script>
 </svelte:head>
 
 <section>
