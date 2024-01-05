@@ -43,6 +43,10 @@
 						<span class="cost">{card.price}</span>
 						<span class="per-walk">/ walk</span>
 					</div>
+					<div class="discount">
+						<Icon icon="iconamoon:discount-light" />
+						-${5 * (i + 1)}/ea extra dog
+					</div>
 					<div class="time">
 						<Icon icon="mdi:alarm-clock" />
 						{card.time} minutes
@@ -183,10 +187,15 @@
 		color: var(--color-grey-dark);
 	}
 
-	.time {
+	.time,
+	.discount {
+		width: 100%;
 		display: flex;
+		justify-content: flex-start;
 		align-items: center;
 		gap: 0.5rem;
+
+		padding-left: 2rem;
 	}
 
 	@media (min-width: 600px) {
