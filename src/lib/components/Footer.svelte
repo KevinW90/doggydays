@@ -16,7 +16,7 @@
 	.footer {
 		background-color: var(--color-black);
 		color: var(--color-white);
-		font-family: 'Fredeoka One';
+		font-family: 'Fredoka One';
 
 		display: flex;
 		justify-content: center;
