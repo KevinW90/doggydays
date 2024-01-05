@@ -9,7 +9,7 @@
 		{
 			role: 'link',
 			name: 'home',
-			link: '/'
+			link: '#header'
 		},
 		{
 			role: 'link',
@@ -37,12 +37,6 @@
 	const toggleMenu = () => {
 		isOpen = !isOpen;
 	};
-
-	function scroll(sectionId: string) {
-		const targetEl = document.querySelector(`#${sectionId}`);
-
-		console.log(targetEl);
-	}
 </script>
 
 <nav class="menu" class:mobile-open={$isMobile && isOpen}>
@@ -50,7 +44,7 @@
 		<ul>
 			{#each menuItems as item}
 				<li class="menu-item">
-					<a href={item.link}>
+					<a href={item.link} on:click={() => (isOpen = false)}>
 						{item.name}
 					</a>
 				</li>
@@ -83,6 +77,7 @@
 		left: 0;
 		bottom: 0;
 		width: 75%;
+		z-index: 999;
 
 		display: flex;
 		flex-direction: column;
