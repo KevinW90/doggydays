@@ -27,7 +27,7 @@
 	});
 </script>
 
-<div class="pricing">
+<div id="pricing">
 	<div class="shadow-text">Pricing Plans</div>
 	<div class="section-title">
 		<h2>Pricing Plans</h2>
@@ -63,7 +63,7 @@
 </div>
 
 <style>
-	.pricing {
+	#pricing {
 		position: relative;
 
 		display: flex;
@@ -199,7 +199,7 @@
 	}
 
 	@media (min-width: 600px) {
-		.pricing {
+		#pricing {
 			padding-top: 5rem;
 			padding-bottom: 12rem;
 		}

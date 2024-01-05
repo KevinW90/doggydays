@@ -32,7 +32,7 @@
 	];
 </script>
 
-<div class="how-it-works">
+<div id="how-it-works">
 	<div class="shadow-text">How It Works</div>
 	<div class="section-title">
 		<h2>How It Works</h2>
@@ -61,7 +61,7 @@
 </div>
 
 <style>
-	.how-it-works {
+	#how-it-works {
 		position: relative;
 
 		display: flex;
@@ -150,7 +150,7 @@
 	}
 
 	@media (min-width: 600px) {
-		.how-it-works {
+		#how-it-works {
 			padding-top: 5rem;
 			padding-bottom: 12rem;
 		}

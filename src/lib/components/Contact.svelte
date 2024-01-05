@@ -29,7 +29,7 @@
 	}
 </script>
 
-<div class="contact">
+<div id="contact">
 	<div class="get-in-touch">
 		<span class="section-title">Get In Touch</span>
 		<form
@@ -98,7 +98,7 @@
 </div>
 
 <style>
-	.contact {
+	#contact {
 		background-color: var(--color-primary);
 		padding: 1rem;
 
@@ -198,7 +198,7 @@
 	}
 
 	@media (min-width: 550px) {
-		.contact {
+		#contact {
 			display: flex;
 			justify-content: center;
 		}
