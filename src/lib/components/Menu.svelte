@@ -44,7 +44,12 @@
 		<ul>
 			{#each menuItems as item}
 				<li class="menu-item">
-					<a href={item.link} on:click={() => (isOpen = false)}>
+					<a
+						href={item.link}
+						on:click={() => {
+							if ($isMobile) isOpen = false;
+						}}
+					>
 						{item.name}
 					</a>
 				</li>
