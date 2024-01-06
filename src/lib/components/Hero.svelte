@@ -24,7 +24,6 @@
 			training opportunity.
 		</p>
 		<div class="actions">
-			<!-- TODO: link to sections -->
 			<Button role="primary">
 				<a href="#contact">Get Started</a></Button
 			>

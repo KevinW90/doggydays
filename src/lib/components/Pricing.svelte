@@ -51,11 +51,9 @@
 						<Icon icon="mdi:alarm-clock" />
 						{card.time} minutes
 					</div>
-					{#if i === 1}
-						<Button role="inverse" width="full">SELECT</Button>
-					{:else}
-						<Button role="primary" width="full">SELECT</Button>
-					{/if}
+					<Button role={i === 1 ? 'inverse' : 'primary'} width="full">
+						<a href="#contact">SELECT</a>
+					</Button>
 				</div>
 			{/each}
 		</div>

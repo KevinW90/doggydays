@@ -50,4 +50,8 @@
 	.transparent {
 		background-color: transparent;
 	}
+
+	.grey {
+		background-color: var(--color-grey-lite);
+	}
 </style>

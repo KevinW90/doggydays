@@ -19,7 +19,9 @@
 				<Menu />
 			</div>
 
-			<Button role="primary">Get Started</Button>
+			<Button role="primary">
+				<a href="/#contact">Get Started</a>
+			</Button>
 		</div>
 		<div class="right"></div>
 	{/if}
