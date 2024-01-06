@@ -16,7 +16,6 @@
 	$: {
 		let dim = $hero ? Math.floor($hero?.offsetWidth) : 0;
 		let isLandscape: boolean = dim > 867;
-		console.log(dim);
 
 		switch (size) {
 			case 'xs':

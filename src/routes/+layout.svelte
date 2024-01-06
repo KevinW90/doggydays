@@ -17,7 +17,6 @@
 
 	let showScrollButton = false;
 	const handleScroll = () => {
-		console.log('scroll');
 		if (document.documentElement.scrollTop > 20) showScrollButton = true;
 		else showScrollButton = false;
 	};
