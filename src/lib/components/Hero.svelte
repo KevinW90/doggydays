@@ -24,8 +24,13 @@
 			training opportunity.
 		</p>
 		<div class="actions">
-			<Button role="primary">Get Started</Button>
-			<Button role="transparent">See Pricing</Button>
+			<!-- TODO: link to sections -->
+			<Button role="primary">
+				<a href="#contact">Get Started</a></Button
+			>
+			<Button role="transparent">
+				<a href="#pricing">See Pricing</a>
+			</Button>
 		</div>
 	</div>
 	<div class="right">
