@@ -15,21 +15,53 @@
 	let errors: string[] = [];
 
 	// email service
-	function sendEmail() {
-		emailjs
-			.sendForm('service_y2e48ee', 'dd_service_request', '#contact-form', 'JfM1exPF86e0BTlV5')
-			.then(
-				function (response) {
-					console.log('SUCCESS!', response.status, response.text);
-				},
-				function (error) {
-					console.log('FAILED...', error);
-				}
+	let requestStatus = {
+		message: '',
+		error: false
+	};
+
+	async function sendEmail() {
+		try {
+			await emailjs.sendForm(
+				'service_y2e48ee',
+				'dd_service_request',
+				'#contact-form',
+				'JfM1exPF86e0BTlV5'
 			);
+			console.log('sent');
+			requestStatus = {
+				message: 'Your request has been sent. Someone will reach out soon.',
+				error: false
+			};
+			setTimeout(() => {
+				requestStatus = {
+					message: '',
+					error: false
+				};
+			}, 5000);
+		} catch (error) {
+			requestStatus = {
+				message:
+					'There was a problem sending your request. Please try again later or call 301 686 4398.',
+				error: true
+			};
+
+			setTimeout(() => {
+				requestStatus = {
+					message: '',
+					error: false
+				};
+			}, 5000);
+		}
 	}
 </script>
 
 <div id="contact">
+	{#if requestStatus.message}
+		<div class="request-status {requestStatus.error ? 'error' : ''}">
+			{requestStatus.message}
+		</div>
+	{/if}
 	<div class="get-in-touch">
 		<span class="section-title">Get In Touch</span>
 		<form
@@ -98,7 +130,22 @@
 </div>
 
 <style>
+	.request-status {
+		width: fit-content;
+		position: absolute;
+		bottom: 1rem;
+		z-index: 999;
+		background-color: var(--color-info-lite);
+		padding: 1rem;
+		border-radius: 0.5rem;
+	}
+
+	.request-status.error {
+		background-color: var(--color-danger);
+	}
+
 	#contact {
+		position: relative;
 		background-color: var(--color-primary);
 		padding: 1rem;
 
