@@ -60,6 +60,7 @@
 	}
 
 	.top {
+		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr;
 		place-items: center;
@@ -69,6 +70,7 @@
 	}
 
 	.bottom {
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
