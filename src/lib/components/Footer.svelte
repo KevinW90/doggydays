@@ -13,14 +13,14 @@
 				excellence in the Fort Washington, MD area.
 			</div>
 		</div>
-		<div class="section">
+		<!-- <div class="section">
 			<div class="title">services</div>
 			<div class="content">
 				<div>Dog Walking</div>
 				<div>Dog Training</div>
 				<div>Dog Grooming</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- <div class="section">
 			<div class="title">useful links</div>
 			<div class="content"></div>
@@ -28,7 +28,7 @@
 		<div class="section">
 			<div class="title">legal</div>
 			<div class="content">
-				<div>Terms of Service</div>
+				<a href="/tos">Terms of Service</a>
 			</div>
 		</div>
 		<div class="section">
