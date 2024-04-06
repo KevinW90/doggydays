@@ -9,17 +9,17 @@
 		{
 			role: 'link',
 			name: 'home',
-			link: '#header'
+			link: '/#header'
 		},
 		{
 			role: 'link',
 			name: 'how it works',
-			link: '#how-it-works'
+			link: '/#how-it-works'
 		},
 		{
 			role: 'link',
 			name: 'pricing',
-			link: '#pricing'
+			link: '/#pricing'
 		},
 		// {
 		// 	role: 'dropdown',
@@ -28,7 +28,7 @@
 		{
 			role: 'link',
 			name: 'contact',
-			link: '#contact'
+			link: '/#contact'
 		}
 	];
 
