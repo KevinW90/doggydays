@@ -6,7 +6,7 @@
 
 <div class="footer">
 	<div class="top">
-		<div class="section">
+		<div class="section" id="description">
 			<div class="title">doggydays</div>
 			<div class="content">
 				DoggyDays is your premier goal-based dog walking and training service. We are committed to
@@ -48,8 +48,6 @@
 
 <style>
 	.footer {
-		background-color: var(--color-black);
-
 		color: var(--color-white);
 		font-family: 'Fredoka One';
 
@@ -71,6 +69,7 @@
 
 	.bottom {
 		width: 100%;
+		background-color: var(--color-black);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -98,5 +97,25 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.top {
+			grid-template-columns: repeat(6, 1fr);
+			align-items: first baseline;
+		}
+
+		.section {
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+
+		.content {
+			text-align: left;
+		}
+
+		#description {
+			grid-column: span 2;
+		}
 	}
 </style>
