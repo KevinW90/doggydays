@@ -27,9 +27,9 @@
 	<div class="section">
 		<div class="title">Weather Conditions</div>
 		<div class="content">
-			For the safety and well-being of your pet(s), walks will not be conducted in any rain or
-			life-threatening weather conditions. While we welcome walks in snow, please provide a towel
-			for wet conditions. If thunder or lightning is present around a scheduled walk time, the walk
+			For the safety and well-being of your pet(s), walks will be shortened in any rain conditions;
+			with the appropriate time billed. Also, walks will not be conducted in any life-threatening
+			weather conditions. If thunder or lightning is present around a scheduled walk time, the walk
 			is automatically canceled.
 		</div>
 	</div>
