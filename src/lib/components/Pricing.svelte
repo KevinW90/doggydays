@@ -6,17 +6,17 @@
 	const cards = [
 		{
 			title: 'Basic',
-			price: 15,
+			price: 20,
 			time: 20
 		},
 		{
 			title: 'Premium',
-			price: 20,
+			price: 30,
 			time: 30
 		},
 		{
 			title: 'Super',
-			price: 35,
+			price: 50,
 			time: 60
 		}
 	];
@@ -45,7 +45,7 @@
 					</div>
 					<div class="discount">
 						<Icon icon="iconamoon:discount-light" />
-						-${5 * (i + 1)}/ea extra dog
+						-${5}/ea extra dog
 					</div>
 					<div class="time">
 						<Icon icon="mdi:alarm-clock" />
