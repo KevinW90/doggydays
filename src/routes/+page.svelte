@@ -3,6 +3,8 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import HowItWorks from '$lib/components/HowItWorks.svelte';
 	import Pricing from '$lib/components/Pricing.svelte';
+	import Banner from '$lib/components/Banner.svelte';
+	import PriceCalculator from '$lib/components/PriceCalculator.svelte';
 </script>
 
 <svelte:head>
@@ -15,6 +17,8 @@
 </svelte:head>
 
 <section>
+	<PriceCalculator />
+	<Banner />
 	<Hero />
 	<HowItWorks />
 	<Pricing />

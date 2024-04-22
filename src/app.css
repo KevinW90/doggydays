@@ -16,6 +16,9 @@
 
 	--color-info: #54b4d3;
 	--color-info-lite: #d0e2ff;
+
+	--color-warning: #e4a11b;
+	--color-warning-lite: #fce3b0;
 }
 
 * {
