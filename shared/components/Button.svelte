@@ -6,8 +6,6 @@
   // the size of the button (small, normal, large)
   export let size = 'normal';
   export let full: boolean = false;
-
-  import '$styles/colors.css'
 </script>
 
 <button class={`button ${size} ${variant}`} class:full={full}>
@@ -21,24 +19,24 @@
   }
 
   .small {
-    padding: .5rem;
-    border-radius: .25rem;
+    padding: var(--sp-quarter) var(--sp-half);
+    border-radius: var(--sp-quarter);
   }
-
+  
   .normal {
-    padding: 1rem;
-    border-radius: .5rem;
+    padding: var(--sp-base);
+    border-radius: var(--sp-half);
   }
 
   .large {
-    padding: 1.5rem;
-    border-radius: .75rem;
-    font-size: 1.25rem;
+    padding: var(--sp-one-and-a-half);
+    border-radius: var(--sp-three-quarters);
+    font-size: var(--sp-one-and-a-quarter);
   }
 
   .primary {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-white);
   }
 
   .secondary {

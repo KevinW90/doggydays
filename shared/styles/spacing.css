@@ -1,0 +1,13 @@
+/* spacing.css */
+
+/* Define the base spacing value */
+:root {
+  --sp-quarter: calc(var(--sp-base) / 4);
+  --sp-half: calc(var(--sp-base) / 2);
+  --sp-three-quarters: calc(var(--sp-base) * 0.75);
+  --sp-base: 1rem;
+  --sp-one-and-a-quarter: calc(var(--sp-base) * 1.25);
+  --sp-one-and-a-half: calc(var(--sp-base) * 1.5);
+  --sp-one-and-three-quarters: calc(var(--sp-base) * 1.75);
+  --sp-double: calc(var(--sp-base) * 2);
+}
