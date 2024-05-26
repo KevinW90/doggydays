@@ -1,6 +1,6 @@
 <script lang="ts">
   // the text to display on the button
-  export let text = '';
+  export let text = 'Default Button Text';
   // the type of button (primary, secondary, etc.)
   export let variant = 'primary';
   // the size of the button (small, normal, large)
@@ -15,14 +15,18 @@
 <style>
   .button {
     background-color: green;
+
+    border: none;
+    font-family: 'Fredoka One';
   }
 
   .small {
     /* Add styles for small size button */
   }
 
-  .medium {
-    /* Add styles for medium size button */
+  .normal {
+    padding: 1rem;
+    border-radius: .5rem;
   }
 
   .large {
@@ -30,6 +34,7 @@
   }
 
   .primary {
-    background-color: blue;
+    background-color: pink;
+    color: white;
   }
 </style>
