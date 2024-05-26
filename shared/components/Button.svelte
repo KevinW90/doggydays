@@ -6,6 +6,8 @@
   // the size of the button (small, normal, large)
   export let size = 'normal';
   export let full: boolean = false;
+
+  import '$styles/colors.css'
 </script>
 
 <button class={`button ${size} ${variant}`} class:full={full}>
@@ -14,14 +16,13 @@
 
 <style>
   .button {
-    background-color: green;
-
     border: none;
     font-family: 'Fredoka One';
   }
 
   .small {
-    /* Add styles for small size button */
+    padding: .5rem;
+    border-radius: .25rem;
   }
 
   .normal {
@@ -30,11 +31,18 @@
   }
 
   .large {
-    /* Add styles for large size button */
+    padding: 1.5rem;
+    border-radius: .75rem;
+    font-size: 1.25rem;
   }
 
   .primary {
-    background-color: pink;
+    background-color: var(--color-primary);
     color: white;
+  }
+
+  .secondary {
+    background-color: var(--color-grey-2);
+    color: var(--color-primary);
   }
 </style>
