@@ -18,7 +18,6 @@
 
 <section>
 	<PriceCalculator />
-	<Banner />
 	<Hero />
 	<HowItWorks />
 	<Pricing />

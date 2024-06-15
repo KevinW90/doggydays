@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Button from './Button.svelte';
 	import Icon from '@iconify/svelte';
+	import { showCalculator } from '$lib/stores';
 
 	const cards = [
 		{
@@ -22,7 +23,7 @@
 	];
 
 	onMount(() => {
-		const cardContainer: HTMLElement | null = document.querySelector('.pricing .cards-container');
+		const cardContainer: HTMLElement | null = document.querySelector('.cards-container');
 		cardContainer!.scrollLeft = cardContainer!.offsetWidth + cardContainer!.offsetWidth / 3;
 	});
 </script>
@@ -51,9 +52,11 @@
 						<Icon icon="mdi:alarm-clock" />
 						{card.time} minutes
 					</div>
-					<Button role={i === 1 ? 'inverse' : 'primary'} width="full">
-						<a href="#contact">SELECT</a>
-					</Button>
+					<Button
+						role={i === 1 ? 'inverse' : 'primary'}
+						width="full"
+						action={() => showCalculator.set(true)}>Calculate Price</Button
+					>
 				</div>
 			{/each}
 		</div>
